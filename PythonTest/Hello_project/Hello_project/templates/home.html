@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-entry">
+<h1>Home templates</h1>
+<h3 class="test">This is test template</h3>
+{% for post in object_list %}
+    <div class="post-entry">
+
+      <h2><a href="/post/{{  post.pk }}/">{{ post.title }}</a></h2>
+      <p>{{ post.body }}</p>
+      <p>{{ post.pk }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

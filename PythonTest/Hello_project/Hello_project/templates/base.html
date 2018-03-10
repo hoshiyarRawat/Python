@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <a href="{% url 'home' %}">home</a> | <a href="{% url 'about' %}">about</a> | <a href="{% url 'post_new' %}">Post New</a>
+    |
+  </header>
+  {% if user.is_authenticated %}
+  <p>Hi {{ user.username }}!</p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in.</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+  <div>
+
+
+        {% block content %}
+
+        {% endblock %}
+
+  </div>
+</body>
+</html>
